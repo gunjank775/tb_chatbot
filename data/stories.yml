@@ -1,0 +1,107 @@
+version: "3.0"
+
+stories:
+
+
+- story: path p1
+  steps:
+  - intent: greet
+  - action: utter_ask_tb
+  - intent: affirm
+  - action: tb_form
+  - active_loop: tb_form
+  - active_loop: null
+  - action: action_hiv_detection
+  - intent: hiv_positive
+  - action: utter_ask_cbnaat
+  - intent: cbnaat_result
+  - action: utter_ask_mtb
+  - intent: mtb_detected
+  - action: utter_ask_rif
+  - intent: rif_sensitive
+  - action: utter_tb_confirmed
+  
+
+
+- story: path p2
+  steps:
+  - intent: greet
+  - action: utter_ask_tb
+  - intent: affirm
+  - action: tb_form
+  - active_loop: tb_form
+  - active_loop: null
+  - action: action_hiv_detection
+  - intent: hiv_positive
+  - action: utter_ask_cbnaat
+  - intent: no_cbnaat_result
+  - action: utter_recommend_cbnaat
+  
+  
+
+
+- story: path p3
+  steps:
+  - intent: greet
+  - action: utter_ask_tb
+  - intent: affirm
+  - action: tb_form
+  - active_loop: tb_form
+  - active_loop: null
+  - action: action_hiv_detection
+  - intent: hiv_negative
+  - action: utter_ask_cxr
+  - intent: cxr_positive
+  - action: utter_ask_smear
+  - intent: smear_available
+  - action: utter_smear_indicative
+  - intent: smear_positive
+  - action: utter_tb_confirmed
+
+
+- story: path p4
+  steps:
+  - intent: greet
+  - action: utter_ask_tb
+  - intent: affirm
+  - action: tb_form
+  - active_loop: tb_form
+  - active_loop: null
+  - action: action_hiv_detection
+  - intent: hiv_negative
+  - action: utter_ask_cxr
+  - intent: cxr_positive
+  - action: utter_ask_smear
+  - intent: smear_not_available
+  - action: utter_smear_test
+
+
+- story: path p5
+  steps:
+  - intent: greet
+  - action: utter_ask_tb
+  - intent: affirm
+  - action: tb_form
+  - active_loop: tb_form
+  - active_loop: null
+  - action: action_hiv_detection
+  - intent: hiv_negative
+  - action: utter_ask_cxr
+  - intent: cxr_negative
+  - action: utter_ask_smear
+  - intent: smear_available
+  - action: utter_smear_indicative
+  - intent: smear_negative
+  - action: utter_no_tb
+  
+
+- story: path p6
+  steps:
+  - intent: greet
+  - action: utter_ask_tb
+  - intent: deny
+  - action: utter_suggestion
+
+ 
+
+

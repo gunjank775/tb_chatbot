@@ -1,0 +1,255 @@
+version: "3.0"
+
+intents:
+  - greet
+  - affirm
+  - deny
+  - suspected_tb
+  - not_suspected_tb
+  - blood_spootum
+  - weight_loss
+  - fever_confirmation
+  - night_sweating
+  - no_symptoms
+  - cough
+  - hiv_positive
+  - hiv_negative
+  - cbnaat_result
+  - no_cbnaat_result
+  - mtb_detected
+  - mtb_not_detected
+  - rif_sensitive
+  - rif_not_sensitive
+  - cxr_positive
+  - cxr_negative
+  - smear_available
+  - smear_not_available
+  - smear_positive
+  - smear_negative
+  - bot_challenge
+  - nlu_fallback
+  - goodbye
+
+actions:
+  - action_hiv_detection
+  - action_save_conversation
+
+entities:
+  - blood
+  - weight
+  - fever
+  - sweating
+  - cough
+  - symptoms
+
+slots:
+  blood:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: blood
+  weight:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: weight
+  fever:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: fever
+  sweating:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: sweating
+  cough:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: cough
+  symptoms:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: symptoms
+
+
+forms:
+  tb_form:
+    required_slots:
+    - symptoms
+
+  
+
+responses:
+  utter_ask_tb:
+  - text: "Hey! do you have suspected TB patient?"
+    buttons:
+      - title: "Yes"
+        payload: "/affirm"
+      - title: "No"
+        payload: "/deny"
+
+  utter_ask_symptoms:
+  - text: "Is your patient experiencing any of the following symptoms :"
+    buttons:
+      - title: "Yes, evening fever for 2 weeks"
+        payload: '/fever_confirmation{{"symptoms":"yes"}}'
+      - title: "Yes, continuous cough"
+        payload: '/cough{{"symptoms":"yes"}}'
+      - title: "Yes, weight loss"
+        payload: '/weight_loss{{"symptoms":"yes"}}'
+      - title: "Yes, night sweating"
+        payload: '/night_sweating{{"symptoms":"yes"}}'
+      - title: "Yes, blood in sputum"
+        payload: '/blood_spootum{{"symptoms":"yes"}}'
+      - title: "None of the Above"
+        payload: '/no_symptoms{{"symptoms":"no"}}'
+
+  # utter_ask_weight:
+  # - text: "Are you experiencing any weight loss since 3 weeks ?"
+  #   buttons:
+  #     - title: "yes"
+  #       payload: '/blood_spootum{{"weight":"yes"}}'
+  #     - title: "no"
+  #       payload: '/blood_spootum{{"weight":"no"}}'
+
+  # utter_ask_fever:
+  # - text: "DO you have fever for last 3-4 days ?"
+  #   buttons:
+  #     - title: "yes"
+  #       payload: '/blood_spootum{{"fever":"yes"}}'
+  #     - title: "no"
+  #       payload: '/blood_spootum{{"fever":"no"}}'
+
+  # utter_ask_sweating:
+  # - text: "Do you have Night sweating ?"
+  #   buttons:
+  #     - title: "yes"
+  #       payload: '/blood_spootum{{"sweating":"yes"}}'
+  #     - title: "no"
+  #       payload: '/blood_spootum{{"sweating":"no"}}'
+
+  # utter_submit:
+  # - text: "All done!"
+
+  # utter_slots_values:
+  # - text: "blood: {blood}, weight: {weight}, fever: {fever},sweating: {sweating}"
+
+  utter_ask_hiv:
+  - text: "Has the patient been living with HIV infection?"
+    buttons:
+      - title: "Yes"
+        payload: "/hiv_positive"
+      - title: "No"
+        payload: "/hiv_negative"
+
+  # utter_cbnaat_recommend:
+  # - text: "Recommend CBNAAT test for patient"
+  #   buttons:
+  #     - title: "Yes, results available"
+  #       payload: "/cbnaat_done"
+  #     - title: "no"
+  #       payload: "/cbnaat_not_done"
+
+  utter_ask_cbnaat:
+  - text: "Recommend CBNAAT test for patient."
+    buttons:
+      - title: "Done, results available"
+        payload: "/cbnaat_result"
+      - title: "No"
+        payload: "/no_cbnaat_result"
+
+  utter_recommend_cbnaat:
+  - text: "Please recommend CBNAAT test for patient."
+
+  utter_ask_mtb:
+  - text: "Has MTB detected in CBNAAT for the patient?"
+    buttons:
+      - title: "Yes"
+        payload: "/mtb_detected"
+      - title: "No"
+        payload: "/mtb_not_detected"
+
+  utter_ask_rif:
+  - text: "Is Patient RIF Sensitive, as found in CBNAAT test?"
+    buttons:
+      - title: "Yes"
+        payload: "/rif_sensitive"
+      - title: "No"
+        payload: "/rif_not_sensitive"
+
+
+
+  utter_ask_cxr:
+  - text: "Are the CXR findings indicative of TB positive in the patient."
+    buttons:
+      - title: "Yes"
+        payload: "/cxr_positive"
+      - title: "No"
+        payload: "/cxr_negative"
+
+
+
+  utter_ask_smear:
+  - text: "Recommend Smear Exam and CXR for the patient."
+    buttons:
+      - title: "Done, results available"
+        payload: "/smear_available"
+      - title: "No"
+        payload: "/smear_not_available"
+
+
+  utter_smear_indicative:
+  - text: "Is the Smear test result indicative of the TB for the patient?"
+    buttons:
+      - title: "Yes"
+        payload: "/smear_positive"
+      - title: "No"
+        payload: "/smear_negative"
+
+  utter_smear_test:
+  - text: "Please recommend Smear Exam and CXR for the patient."
+
+  utter_tb_confirmed:
+  - text: "Patient - microbiologically confirmed of TB."
+
+
+  utter_evaluation:
+  - text: "Additional evaluation required"
+
+  utter_no_tb:
+  - text: "Patient -  is currently confirmed of  TB negative. Alternate diagnosis for the patient is required."
+
+  utter_suggestion:
+  - text: "Sorry, we support only TB as of now! Goodbye"
+
+  utter_please_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+
+  utter_default:
+  - text: "Sorry I didn't get that. Can you rephrase?"
+  
+
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,277 @@
+version: "3.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: affirm
+  examples: |
+    - yeah 
+    - correct
+    - ye
+    - uh yes
+    - let's do it
+    - yeah
+    - uh yes
+    - um yes
+    - yes 
+    - that's correct
+    - yes yes
+    - right
+    - yea
+    - yes
+    - yes right
+  
+
+- intent: deny
+  examples: |
+    - no
+    - no thanks
+    - no thank you
+    - uh no
+    - breath no
+
+
+- intent: blood_spootum
+  examples: |
+    - [yes](blood) blood in spootum
+    - [no](blood) noticed blood in spootum
+    - [yes](blood) blood in spootum
+    - [no](blood) little blood in spootum
+    - [yes](blood) blood in spootum
+
+- intent: weight_loss
+  examples: |
+    - [yes](weight) experiencing weight loss
+    - [no](weight) weight loss
+    - [yes](weight) weight loss since last 3 weeks
+    - [no](weight) experiencing weight loss since last 4 weeks
+    - [yes](weight) weight loss experinced since last 2 weeks
+    - [yes](weight) weight loss
+    - [no](weight) loss in weight
+    - [yes](weight) loss in weight
+
+- intent: fever_confirmation
+  examples: |
+    - [yes](fever) fever since last 3 dyas
+    - [yes](fever) suffering from fever sine last 4 days
+    - [yes](fever) experiencing fever since last 4 days
+    - [no](fever) fever since last 5 days
+    - [no](fever) fever
+
+- intent: night_sweating
+  examples: |
+    - [yes](sweating) I have night sweating
+    - [yes](sweating) night sweating
+    - [no](sweating) night sweating
+    - [yes](sweating) sweating in night
+    - [yes](sweating) sweating in night
+    - experiencing [no](sweating) sweating in night
+    - sweating in night [no](sweating)
+
+
+- intent: cough
+  examples: |
+    - [yes](cough) I have cough
+    - [yes](cough) cough
+    - [no](cough) cough
+    - experiencing [no](cough) cough
+    - [yes](cough) experiencing  cough
+
+
+- intent: no_symptoms
+  examples: |
+    - [no](symptoms) symptoms of tb
+    - [no](symptoms) patient not experiencing tb symptoms
+    - [no](symptoms) any tb symptoms
+    - [no](symptoms) symptoms
+
+
+
+- intent: hiv_positive
+  examples: |
+    - found hiv postive
+    - yes hiv positive
+    - hiv postive
+    - yes patient is hiv positive
+
+- intent: hiv_negative
+  examples: |
+    - found hiv negative
+    - yes hiv negative
+    - hiv negative
+    - yes patient is hiv negative
+
+- intent: cbnaat_result
+  examples: |
+    - yes cbnaat result available
+    - cbnattt result available
+    - yes I have cbnaat result
+    - yes cbnaat record is recorded
+
+- intent: no_cbnaat_result
+  examples: |
+    - no cbnaat result available
+    - cbnattt result not available
+    - no I do not have cbnaat result
+    - no cbnaat record is recorded 
+
+- intent: mtb_detected
+  examples: |
+    - yes mtb detected in patient cbnaat result
+    - yes patient is mtb detected in cbnaat result
+    - yes patient is mtb detetcted
+    - patient is mtb detetcted
+
+- intent: mtb_not_detected
+  examples: |
+    - no mtb detected in patient cbnaat result
+    - no patient is not mtb detected in cbnaat result
+    - no patient is not mtb detetcted
+    - patient is not mtb detetcted
+
+- intent: rif_sensitive
+  examples: |
+    - yes patient is rif sensitive
+    - yes patient is rif sensitive in cbnaat result
+    - patient is rif sensitive
+    - yes patient rif sensitive
+
+- intent: rif_not_sensitive
+  examples: |
+    - no patient is rif not sensitive
+    - no patient is not rif sensitive in cbnaat result
+    - patient is not rif sensitive
+    - no patient not rif sensitive
+
+- intent: cxr_positive
+  examples: |
+    - yes cxr is tb positive
+    - yes cxr indicate tb positive
+    - cxr is tb positive
+    - tb postive cxr 
+
+- intent: cxr_negative
+  examples: |
+    - no cxr is tb negative
+    - no cxr indicate tb negative
+    - cxr is tb negative
+    - tb negative cxr 
+
+- intent: smear_available
+  examples: |
+    - yes smear test is available
+    - smear test available
+    - yes smear test available
+
+- intent: smear_not_available
+  examples: |
+    - no smear test is not available
+    - smear test not available
+    - no smear test not available
+
+- intent: smear_positive
+  examples: |
+    - yes smear test indicate tb
+    - smear test indicate tb
+    - yes smear test is tb indicative of patient
+    - yes smear test indicate tb to patient
+
+- intent: smear_negative 
+  examples: |
+    - no smear test not indicate tb
+    - no smear test not indicate tb to patient
+    - no smear test is not tb indicative of patient
+
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+
+# - intent: chest_xray
+#   examples: |
+#     - I have chest xray
+#     - yes chest xray done
+#     - chest xray available
+#     - yeah I have chest xray
+#     - yes I have chest xray
+#     - yes chest xray is available
+#     - yes chest xray 
+
+# - intent: not_chest_xray
+#   examples: |
+#     - no chest xray
+#     - no chest xray done
+#     - I do not have chest xray
+#     - chest xray not available
+#     - no xray
+#     - no I dont have chest xray
+#     - no chest ray available
+#     - no chest ray till now
+
+# - intent: normal
+#   examples: |
+#     - normal
+#     - normal xray
+#     - it is normal xray
+#     - yes normal
+#     - fully normal image of xray
+#     - xray is normal
+#     - chest xray is fully normal
+    
+
+# - intent: abnormal
+#   examples: |
+#     - abnormal 
+#     - abnormal xray
+#     - it is abnormal
+#     - yes abnormal
+#     - abnormal image of chest x ray
+#     - yes it looks abnormal
+#     - xray is looking abnormal 
+#     - it looks abnormal
+
+# - intent: consistent_tb
+#   examples: |
+#     - consistent tb
+#     - yes consistent tb
+#     - consistent tb xray
+#     - xray is tb consistent
+
+# - intent: not_consistent_tb
+#   examples: |
+#     - not consistent tb
+#     - not consistent tb
+#     - no consistent tb xray
+#     - xray is not tb consistent
